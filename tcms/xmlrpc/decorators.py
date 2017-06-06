@@ -5,7 +5,7 @@ import logging
 from functools import wraps
 
 from django.conf import settings
-from kobo.django.xmlrpc.models import XmlRpcLog
+from .models import XmlRpcRecord
 
 
 __all__ = ('log_call',)
@@ -21,7 +21,7 @@ if settings.DEBUG:
             args)
         logger.debug(log_msg)
 else:
-    create_log = XmlRpcLog.objects.create
+    create_log = XmlRpcRecord.objects.create
 
 
 def log_call(*args, **kwargs):

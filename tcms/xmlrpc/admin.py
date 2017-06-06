@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from kobo.django.xmlrpc.models import XmlRpcLog
+from .models import *
 
 
-class NitrateXmlRpcLogAdmin(admin.ModelAdmin):
+class XmlRpcRecordAdmin(admin.ModelAdmin):
     list_display = ('happened_on', 'user_username', 'method')
     list_per_page = 50
     list_filter = ('dt_inserted',)
@@ -12,16 +12,16 @@ class NitrateXmlRpcLogAdmin(admin.ModelAdmin):
     user_cache = {}
 
     def __init__(self, *args, **kwargs):
-        NitrateXmlRpcLogAdmin.user_cache.clear()
-        NitrateXmlRpcLogAdmin.user_cache = {}
+        XmlRpcRecordAdmin.user_cache.clear()
+        XmlRpcRecordAdmin.user_cache = {}
 
-        super(NitrateXmlRpcLogAdmin, self).__init__(*args, **kwargs)
+        super(XmlRpcRecordAdmin, self).__init__(*args, **kwargs)
 
     def user_username(self, obj):
-        username = NitrateXmlRpcLogAdmin.user_cache.get(obj.user_id)
+        username = XmlRpcRecordAdmin.user_cache.get(obj.user_id)
         if username is None:
             username = obj.user.username
-            NitrateXmlRpcLogAdmin.user_cache[obj.user_id] = username
+            XmlRpcRecordAdmin.user_cache[obj.user_id] = username
         return username
 
     user_username.short_description = 'username'
@@ -31,6 +31,4 @@ class NitrateXmlRpcLogAdmin(admin.ModelAdmin):
 
     happened_on.short_description = 'Happened On'
 
-
-admin.site.unregister(XmlRpcLog)
-admin.site.register(XmlRpcLog, NitrateXmlRpcLogAdmin)
+admin.site.register(XmlRpcRecord, XmlRpcRecordAdmin)
