@@ -693,16 +693,29 @@ class TestAJAXSearchRuns(BaseCaseRun):
         from pprint import pprint
         pprint(search_result)
         print "*** expected", expected_found_runs
+        links_id = [r[1] for r in search_result['aaData']]
+        links_summary = [r[2] for r in search_result['aaData']]
 
-        for run, row in zip(expected_found_runs, search_result['aaData']):
-            self.assertEqual(
+        for run in expected_found_runs:
+            self.assertIn(
                 "<a href='{}'>{}</a>".format(
                     reverse('testruns-get', args=[run.pk]), run.pk),
-                row[1])
-            self.assertEqual(
+                links_id)
+            self.assertIn(
                 "<a href='{}'>{}</a>".format(
                     reverse('testruns-get', args=[run.pk]), run.summary),
-                row[2])
+                links_summary)
+
+
+#        for run, row in zip(expected_found_runs, search_result['aaData']):
+#            self.assertEqual(
+#                "<a href='{}'>{}</a>".format(
+#                    reverse('testruns-get', args=[run.pk]), run.pk),
+#                row[1])
+#            self.assertEqual(
+#                "<a href='{}'>{}</a>".format(
+#                    reverse('testruns-get', args=[run.pk]), run.summary),
+#                row[2])
 
     def test_search_all_runs(self):
         response = self.client.get(self.search_url)
