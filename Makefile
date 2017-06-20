@@ -53,7 +53,7 @@ test:
 			TEST_DB=$$DB make test; \
 		done; \
 	else \
-		DJANGO_SETTINGS_MODULE=$(DJANGO_SETTINGS_MODULE) pytest $(TEST_TARGET); \
+		DJANGO_SETTINGS_MODULE=$(DJANGO_SETTINGS_MODULE) pytest -s $(TEST_TARGET); \
 	fi
 
 

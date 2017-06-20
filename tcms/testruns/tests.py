@@ -690,6 +690,10 @@ class TestAJAXSearchRuns(BaseCaseRun):
         self.assertEqual(expected_runs_count, search_result['iTotalDisplayRecords'])
         self.assertEqual(expected_runs_count, len(search_result['aaData']))
 
+        from pprint import pprint
+        pprint(search_result)
+        print "*** expected", expected_found_runs
+
         for run, row in zip(expected_found_runs, search_result['aaData']):
             self.assertEqual(
                 "<a href='{}'>{}</a>".format(
