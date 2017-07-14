@@ -36,6 +36,9 @@ install:
   - pip install -r $REQUIREMENTS_TXT
   - pip install -r requirements/devel.txt
   - pip install coveralls
+## add debug in transaction.__exit__
+  - cp transaction.py ~/virtualenv/python2.7/lib/python2.7/site-packages/django/db/transaction.py
+
 script: make check
 after_success:
   - coveralls
