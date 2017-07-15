@@ -122,6 +122,7 @@ class TestRegistration(TestCase):
     @patch('tcms.core.utils.mailto.threading.Thread', new=MockThread)
     @patch('tcms.core.contrib.auth.models.sha1')
     def assert_user_registration(self, username, sha1):
+        print "***** ASSERT USER REGISTRATION called with ", username, sha1
         sha1.return_value.hexdigest.return_value = self.fake_activate_key
 
         response = self.client.post(self.register_url,
