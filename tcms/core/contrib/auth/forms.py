@@ -28,6 +28,7 @@ class RegistrationForm(UserCreationForm):
         user.set_password(self.cleaned_data["password1"])
         if commit:
             user.save()
+            user.save_m2m()
         return user
 
     def set_active_key(self):
