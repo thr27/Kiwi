@@ -4,7 +4,7 @@
 {% block custom_javascript %}
 <script type="text/javascript" src="{{ STATIC_URL }}js/advance_search.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/testplan_actions.js"></script>
-<script type="text/javascript" src="/jsi18n/"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}jsi18n/"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}admin/js/core.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}admin/js/calendar.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}admin/js/admin/DateTimeShortcuts.js"></script>
@@ -16,12 +16,12 @@
 		>> Advanced Search
 	</div>
 	<div class="advancedSearchTip advancedSearch">
-		<h3>Use the form below as your advanced search：</h3>
+		<h3>Use the form below as your advanced search:</h3>
 		<ul>
 			<li>By selecting 'contains' or 'not contains' to include or exclude the tagged results.</li>
 			<li>'Actual Tester' indicates the tester of case in a test run, may differ from 'default tester' of test run.</li>
 			<li>Relationship Query :
-				<p>Any of the three can be used to search one another：</p>
+				<p>Any of the three can be used to search one another:</p>
 				<p>e.g. Select product 'RHEL6' in plan form,  and set 'Tom' as test run's manager, then search test plan .The result will be the plans under 'RHEL6' and have runs managed by 'Tom'.</p>
 			</li>
 			
