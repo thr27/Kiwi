@@ -55,7 +55,7 @@ a.banner_login{ color:red;}
 .menu li.current{background:url(../images/bg_menu_current.png) no-repeat center;}
 .menu .current a{font-weight:bold; color:#FFFFFF;}
 .submenu{background:#3E3E3F;width:100%;}
-.menu .linkAdvancedSearch{width:115px; display: inline-block;}
+.menu .linkAdvancedSearch{width:115px; display: inline-block; color:#004481; }
 .menu .linkAdvancedSearch a:link,.menu .linkAdvancedSearch a:visited{text-decoration:underline;}
 .menu .linkAdvancedSearch a:hover{text-decoration:none; font-weight:normal;}
 #nav{list-style-type:none; overflow:hidden;float:left;padding:0px;margin:0px;}
