@@ -260,7 +260,7 @@ AUTHENTICATION_BACKENDS = [
 USER_GUIDE_URL = "http://kiwitestpad.readthedocs.io/en/latest/tutorial.html"
 
 FOOTER_LINKS = [
- ('https://github.com/MrSenko/Kiwi/issues/new', 'Report an Issue'),
+ ('https://github.com/thr27/Kiwi/issues/new', 'Report an Issue'),
  (USER_GUIDE_URL, 'User guide'),
  ('http://kiwitestpad.readthedocs.io/en/latest/guide/admin.html', 'Administration guide'),
  ('/xmlrpc/', 'XML-RPC service'),
