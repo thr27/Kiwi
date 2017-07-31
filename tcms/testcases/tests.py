@@ -500,12 +500,12 @@ class TestOperateCasePlans(BasePlanCase):
             plan = case_plan_rel.plan
             self.assertContains(
                 response,
-                '<a href="/plan/{0}/{1}">{0}</a>'.format(plan.pk, slugify(plan.name)),
+                '<a href="{{SETTINGS.SUB_SITE}}/plan/{0}/{1}">{0}</a>'.format(plan.pk, slugify(plan.name)),
                 html=True)
 
             self.assertContains(
                 response,
-                '<a href="/plan/{}/{}">{}</a>'.format(plan.pk, slugify(plan.name), plan.name),
+                '<a href="{{SETTINGS.SUB_SITE}}/plan/{}/{}">{}</a>'.format(plan.pk, slugify(plan.name), plan.name),
                 html=True)
 
     def test_list_plans(self):

@@ -138,7 +138,7 @@ class TestCreateNewRun(BasePlanCase):
         for i, case in enumerate((self.case_1, self.case_2, self.case_3), 1):
             self.assertContains(
                 response,
-                '<a href="/case/{0}/">{0}</a>'.format(case.pk),
+                '<a href="{{SETTINGS.SUB_SITE}}/case/{0}/">{0}</a>'.format(case.pk),
                 html=True)
             self.assertContains(
                 response,
@@ -214,7 +214,7 @@ class CloneRunBaseTest(BaseCaseRun):
         for case_run in (self.case_run_1, self.case_run_2):
             self.assertContains(
                 response,
-                '<a href="/case/{0}/">{0}</a>'.format(case_run.case.pk),
+                '<a href="{{SETTINGS.SUB_SITE}}/case/{0}/">{0}</a>'.format(case_run.case.pk),
                 html=True)
             self.assertContains(
                 response,
