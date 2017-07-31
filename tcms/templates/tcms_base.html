@@ -16,6 +16,17 @@
 	<script type="text/javascript" language="javascript" charset="utf-8">
 		jQuery.noConflict();
 		var jQ = jQuery;
+		
+		{% if SETTINGS.SUB_SITE %}
+
+		/* Fix Ajax call to Sub Site Url */
+		jQ.ajaxPrefilter(function( options ) {
+		if (options.url.indexOf('http://') === -1 && options.url.indexOf('https://') === -1 && options.url.indexOf('{{SETTINGS.SUB_SITE}}') === -1) {
+			options.url = {{SETTINGS.SUB_SITE}} +  options.url ;
+		}
+		});
+		{% endif %}
+		
 		{% if SETTINGS.ENABLE_PIWIK_TRACKING %}
 		// jQuery global ajax event handler for Piwik
 				jQ(document).ajaxSend(function(event, jqxhr, settings){
