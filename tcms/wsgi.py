@@ -40,6 +40,7 @@ def application(environ, start_response):
     environ['PATH_INFO'] = environ['SCRIPT_NAME'] + environ['PATH_INFO']
     if environ['wsgi.url_scheme'] == 'https':
         environ['HTTPS'] = 'on'
+        environ['SCRIPT_NAME'] = ''
     
     return _application(environ, start_response)
 
